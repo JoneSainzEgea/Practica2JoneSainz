@@ -9,7 +9,16 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
+            <x:Double x:Key="globalFontSize">16</x:Double>
+            <x:String x:Key="globalFontFamily">OpenSansRegular</x:String>
+            <Color x:Key="globalTextColor">Black</Color>
 
+            <Style TargetType="Label" x:Key="DynamicLabelStyle">
+                <Setter Property="FontSize" Value="{DynamicResource globalFontSize}" />
+                <Setter Property="FontFamily" Value="{DynamicResource globalFontFamily}" />
+                <Setter Property="TextColor" Value="{DynamicResource globalTextColor}" />
+            </Style>
             <Style TargetType="StackLayout">
                 <Setter Property="Spacing" Value="6" />
             </Style>
