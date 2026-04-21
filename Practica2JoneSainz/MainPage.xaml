@@ -14,33 +14,38 @@
                 SemanticProperties.Description="dot net bot in a race car number eight" />
 
             <Label
-                Text="Hello, World!"
+                Text="Práctica 2"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-            <Label
-                Text="Welcome to &#10;.NET Multi-platform App UI"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
-
             <Button
                 x:Name="FingerprintBtn"
-                Text="Login with fingerprint" 
+                Text="Usar huella" 
                 SemanticProperties.Hint="Validates user with fingerprint"
                 Clicked="OnFingerprintClicked"
                 HorizontalOptions="Fill" />
-
+            <Label
+                Text="Nombre de usuario"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+            
             <Entry
                 x:Name="entryUser"
-                Placeholder="Enter user"
+                Placeholder="Usuario"
                 ClearButtonVisibility="WhileEditing"
                 TextChanged="OnEntryUserTextChanged"
                 Completed="OnEntryUserCompleted" />
             
+            <Label
+                Text="Contraseña"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+            
             <Entry
                 x:Name="entryPass"
-                Placeholder="Enter password"
+                Placeholder="Contraseña"
                 ClearButtonVisibility="WhileEditing"
                 IsPassword="true"
                 TextChanged="OnEntryPassTextChanged"

@@ -3,10 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Practica2JoneSainz.HomePage"
              Title="HomePage">
-    <VerticalStackLayout>
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25">
+        
         <Label 
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <HorizontalStackLayout
+            Padding="30,0"
+            Spacing="20">
+            <Button
+            x:Name="GaleriaBtn"
+            Text="Galería" 
+            SemanticProperties.Hint="Opens animal gallery page"
+            Clicked="OnGaleriaClicked"
+            HorizontalOptions="Fill" />
+
+            <Button
+            x:Name="ConfigBtn"
+            Text="Configuración" 
+            SemanticProperties.Hint="Opens configuration page"
+            Clicked="OnConfigClicked"
+            HorizontalOptions="Fill" />
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

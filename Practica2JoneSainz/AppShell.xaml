@@ -18,4 +18,11 @@
             ContentTemplate="{DataTemplate local:Galeria}"
             Route="Galeria" />
     </FlyoutItem>
+    <FlyoutItem
+        Title="Configuración">
+            <ShellContent
+            Title="Configuración"
+            ContentTemplate="{DataTemplate local:Configuracion}"
+            Route="Configuracion" />
+    </FlyoutItem>
 </Shell>
