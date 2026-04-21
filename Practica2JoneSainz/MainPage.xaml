@@ -25,10 +25,32 @@
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
             <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                x:Name="FingerprintBtn"
+                Text="Login with fingerprint" 
+                SemanticProperties.Hint="Validates user with fingerprint"
+                Clicked="OnFingerprintClicked"
+                HorizontalOptions="Fill" />
+
+            <Entry
+                x:Name="entryUser"
+                Placeholder="Enter user"
+                ClearButtonVisibility="WhileEditing"
+                TextChanged="OnEntryUserTextChanged"
+                Completed="OnEntryUserCompleted" />
+            
+            <Entry
+                x:Name="entryPass"
+                Placeholder="Enter password"
+                ClearButtonVisibility="WhileEditing"
+                IsPassword="true"
+                TextChanged="OnEntryPassTextChanged"
+                Completed="OnEntryPassCompleted" />
+
+            <Button
+                x:Name="LoginBtn"
+                Text="Login" 
+                SemanticProperties.Hint="Validates user and password"
+                Clicked="OnLoginClicked"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
