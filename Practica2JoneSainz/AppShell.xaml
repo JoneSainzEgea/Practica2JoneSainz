@@ -11,5 +11,18 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-
+    <FlyoutItem
+        Title="Galería">
+            <ShellContent
+            Title="Galería"
+            ContentTemplate="{DataTemplate local:Galeria}"
+            Route="Galeria" />
+    </FlyoutItem>
+    <FlyoutItem
+        Title="Configuración">
+            <ShellContent
+            Title="Configuración"
+            ContentTemplate="{DataTemplate local:Configuracion}"
+            Route="Configuracion" />
+    </FlyoutItem>
 </Shell>
