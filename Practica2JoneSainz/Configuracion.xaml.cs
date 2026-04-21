@@ -9,53 +9,89 @@ public partial class Configuracion : ContentPage
 
     private void OnThemeClicked(object sender, EventArgs e)
     {
-        if (Application.Current.UserAppTheme == AppTheme.Dark)
-        {
-            Application.Current.UserAppTheme = AppTheme.Light;
-        }
-        else
-        {
-            Application.Current.UserAppTheme = AppTheme.Dark;
-        }
+        Application.Current.UserAppTheme =
+                (Application.Current.UserAppTheme == AppTheme.Dark)
+                ? AppTheme.Light
+                : AppTheme.Dark;
+
+        OnColorClicked(null, null);
     }
 
     private void OnFontSizeClicked(object sender, EventArgs e)
     {
-        double currentSize = (double)Application.Current.Resources["globalFontSize"];
+        var resources = Application.Current.Resources;
+        double current = (double)resources["GlobalFontSize"];
 
-        if (currentSize == 16) // De Normal a Grande
-            Application.Current.Resources["globalFontSize"] = 24.0;
-        else if (currentSize == 24) // De Grande a Pequeño
-            Application.Current.Resources["globalFontSize"] = 12.0;
-        else // De Pequeño a Normal
-            Application.Current.Resources["globalFontSize"] = 16.0;
+        if (current == 16.0)
+            resources["GlobalFontSize"] = 24.0; // Grande
+        else if (current == 24.0)
+            resources["GlobalFontSize"] = 12.0; // Pequeño
+        else
+            resources["GlobalFontSize"] = 16.0; // Normal
     }
 
     private void OnFontFamilyClicked(object sender, EventArgs e)
     {
-        if (Application.Current.Resources["globalFontFamily"].ToString() == "OpenSansRegular")
+        var resources = Application.Current.Resources;
+        string currentFont = resources["GlobalFontFamily"].ToString();
+
+        // Lógica para cambiar de familia manteniendo el estado de negrita
+        if (currentFont == "OpenSansRegular")
+            resources["GlobalFontFamily"] = "CourierNew";
+
+        else if (currentFont == "OpenSansSemibold")
+            resources["GlobalFontFamily"] = "CourierNewBold";
+
+        else if (currentFont == "CourierNew")
+            resources["GlobalFontFamily"] = "OpenSansRegular";
+
+        else if (currentFont == "CourierNewBold")
+            resources["GlobalFontFamily"] = "OpenSansSemibold";
+    }
+
+    private void OnBoldClicked(object sender, EventArgs e)
+    {
+        var resources = Application.Current.Resources;
+        string currentFont = resources["GlobalFontFamily"].ToString();
+
+        switch (currentFont)
         {
-            Application.Current.Resources["globalFontFamily"] = "Courier New";
-        }
-        else
-        {
-            Application.Current.Resources["globalFontFamily"] = "OpenSansRegular";
+            case "OpenSansRegular":
+                resources["GlobalFontFamily"] = "OpenSansSemibold";
+                break;
+
+            case "OpenSansSemibold":
+                resources["GlobalFontFamily"] = "OpenSansRegular";
+                break;
+
+            case "CourierNew":
+                resources["GlobalFontFamily"] = "CourierNewBold";
+                break;
+
+            case "CourierNewBold":
+                resources["GlobalFontFamily"] = "CourierNew";
+                break;
+
+            default:
+                resources["GlobalFontFamily"] = "OpenSansRegular";
+                break;
         }
     }
 
     private void OnColorClicked(object sender, EventArgs e)
     {
-        Color currentColor = (Color)Application.Current.Resources["globalTextColor"];
+        var resources = Application.Current.Resources;
+        Color currentColor = (Color)resources["GlobalTextColor"];
 
-        if (currentColor == Colors.Black || currentColor == Colors.White)
+        if (currentColor == Colors.DarkViolet)
         {
-            Application.Current.Resources["globalTextColor"] = Colors.DarkGreen;
+            resources["GlobalTextColor"] = Application.Current.UserAppTheme == AppTheme.Dark
+                ? Colors.White
+                : Colors.Black;
         }
         else
         {
-            // Devolvemos el color según el tema actual
-            Application.Current.Resources["globalTextColor"] =
-                Application.Current.UserAppTheme == AppTheme.Dark ? Colors.White : Colors.Black;
+            resources["GlobalTextColor"] = Colors.DarkViolet;
         }
     }
 }

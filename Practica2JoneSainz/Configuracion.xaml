@@ -22,6 +22,10 @@
             Clicked="OnFontFamilyClicked" />
 
         <Button
+            Text="Alternar Negrita"
+            Clicked="OnBoldClicked" />
+
+        <Button
             Text="Cambiar Color de Texto"
             Clicked="OnColorClicked" />
 

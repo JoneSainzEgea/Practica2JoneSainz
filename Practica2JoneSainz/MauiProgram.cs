@@ -13,6 +13,8 @@ namespace Practica2JoneSainz
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("CourierNew.ttf", "CourierNew");
+                    fonts.AddFont("CourierNew-Bold.ttf", "CourierNewBold");
                 });
 
 #if DEBUG

@@ -9,19 +9,26 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            
-            <x:Double x:Key="globalFontSize">16</x:Double>
-            <x:String x:Key="globalFontFamily">OpenSansRegular</x:String>
-            <Color x:Key="globalTextColor">Black</Color>
 
-            <Style TargetType="Label" x:Key="DynamicLabelStyle">
-                <Setter Property="FontSize" Value="{DynamicResource globalFontSize}" />
-                <Setter Property="FontFamily" Value="{DynamicResource globalFontFamily}" />
-                <Setter Property="TextColor" Value="{DynamicResource globalTextColor}" />
+            <x:Double x:Key="GlobalFontSize">16</x:Double>
+            <x:String x:Key="GlobalFontFamily">OpenSansRegular</x:String>
+            <Color x:Key="GlobalTextColor">#000000</Color>
+
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="{DynamicResource GlobalFontSize}" />
+                <Setter Property="FontFamily" Value="{DynamicResource GlobalFontFamily}" />
+                <Setter Property="TextColor" Value="{DynamicResource GlobalTextColor}" />
             </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="{DynamicResource GlobalFontFamily}" />
+                <Setter Property="FontSize" Value="{DynamicResource GlobalFontSize}" />
+            </Style>
+            
             <Style TargetType="StackLayout">
                 <Setter Property="Spacing" Value="6" />
             </Style>
+            
             <Style TargetType="Grid">
                 <Setter Property="RowSpacing" Value="6" />
                 <Setter Property="ColumnSpacing" Value="6" />
