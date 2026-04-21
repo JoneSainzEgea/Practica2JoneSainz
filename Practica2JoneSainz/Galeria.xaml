@@ -4,9 +4,39 @@
              x:Class="Practica2JoneSainz.Galeria"
              Title="Galeria">
     <VerticalStackLayout>
+        
         <Label 
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <CollectionView
+            x:Name="AnimalsCollection"
+            ItemsSource="{Binding Animales}"
+            SelectionMode="Single"
+            SelectionChanged="OnSelectionChanged">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10" Padding="0" CornerRadius="10" HasShadow="True">
+                        <VerticalStackLayout Spacing="5" Padding="10">
+                            <Image Source="{Binding imagen}" 
+                               HeightRequest="100" 
+                               WidthRequest="100" 
+                               Aspect="AspectFill" />
+                            <Label Text="{Binding nombre}" 
+                               HorizontalOptions="Center" 
+                               FontAttributes="Bold" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
     </VerticalStackLayout>
+    
 </ContentPage>
