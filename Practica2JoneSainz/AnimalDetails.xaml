@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica2JoneSainz.AnimalDetails"
+             Title="AnimalDetails">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
+                <Label Text="{Binding NombreComun}"
+                       FontSize="32"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource Primary}"
+                       HorizontalOptions="Center" />
+
+                <Label Text="{Binding NombreCientifico}"
+                       FontSize="18"
+                       FontAttributes="Italic"
+                       TextColor="Gray"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Frame CornerRadius="15" 
+                   Padding="0" 
+                   IsClippedToBounds="True" 
+                   HasShadow="True"
+                   HeightRequest="250">
+                <Image Source="{Binding Imagen}"
+                       Aspect="AspectFill" />
+            </Frame>
+
+            <Frame BackgroundColor="#F0F0F0" CornerRadius="10" BorderColor="Transparent">
+                <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto" ColumnSpacing="15" RowSpacing="8">
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Superclase:" FontAttributes="Bold" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Superclase}" />
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Clase:" FontAttributes="Bold" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Clase}" />
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Orden:" FontAttributes="Bold" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Orden}" />
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Familia:" FontAttributes="Bold" />
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Familia}" />
+                </Grid>
+            </Frame>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Descripción" FontSize="20" FontAttributes="Bold" />
+                <BoxView HeightRequest="1" Color="{StaticResource Primary}" />
+                <Label Text="{Binding Descripcion}" 
+                       FontSize="16" 
+                       LineHeight="1.2"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+            <Button Text="Cerrar Ficha"
+                    Clicked="OnCloseClicked"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    CornerRadius="20"
+                    Margin="0,10,0,20" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
