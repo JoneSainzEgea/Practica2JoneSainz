@@ -32,6 +32,18 @@
         </ResourceDictionary>
     </Shell.Resources>
     
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout Padding="20" BackgroundColor="{StaticResource Primary}">
+            <Label Text="Wiki Animal" 
+               TextColor="White" 
+               FontSize="20" 
+               FontAttributes="Bold" />
+            <Label Text="Menú de navegación" 
+               TextColor="#D1D1D1" 
+               FontSize="12" />
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+    
     <ShellContent
         Title="Inicio"
         ContentTemplate="{DataTemplate local:MainPage}"
