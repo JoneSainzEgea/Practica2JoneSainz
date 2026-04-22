@@ -42,7 +42,7 @@
                            TextColor="{DynamicResource GlobalTextColor}" />
 
                     <Button x:Name="GaleriaBtn"
-                            Text="🐾 Ver Galería" 
+                            Text="Ver Galería" 
                             FontSize="{DynamicResource GlobalFontSize}"
                             FontFamily="{DynamicResource GlobalFontFamily}"
                             HeightRequest="60"

@@ -2,41 +2,76 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Practica2JoneSainz.Galeria"
-             Title="Galería">
-    <VerticalStackLayout>
-        
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Galería de Animales"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
+    <Grid RowDefinitions="Auto, *">
 
-        <CollectionView
-            x:Name="AnimalsCollection"
-            ItemsSource="{Binding Animales}"
-            SelectionMode="Single"
-            SelectionChanged="OnSelectionChanged">
+        <VerticalStackLayout Grid.Row="0" Padding="20" Spacing="5">
+            <Label Text="La Wiki de los Animales"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource GlobalTextColor}"
+                   FontFamily="{DynamicResource GlobalFontFamily}" />
+
+            <Label Text="Selecciona un animal para ver sus detalles"
+                   FontSize="14"
+                   HorizontalOptions="Center"
+                   TextColor="Gray"
+                   FontFamily="{DynamicResource GlobalFontFamily}" />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1"
+                        x:Name="AnimalsCollection"
+                        ItemsSource="{Binding Animales}"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged"
+                        HorizontalScrollBarVisibility="Never"
+                        VerticalScrollBarVisibility="Never">
 
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2" />
+                <GridItemsLayout Orientation="Vertical" Span="2" 
+                                 VerticalItemSpacing="10" 
+                                 HorizontalItemSpacing="10" />
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="10" Padding="0" CornerRadius="10" HasShadow="True">
-                        <VerticalStackLayout Spacing="5" Padding="10">
-                            <Image Source="{Binding imagen}" 
-                               HeightRequest="100" 
-                               WidthRequest="100" 
-                               Aspect="AspectFill" />
-                            <Label Text="{Binding nombre}" 
-                               HorizontalOptions="Center" 
-                               FontAttributes="Bold" />
+                    <Frame Margin="10" 
+                           Padding="0" 
+                           CornerRadius="15" 
+                           HasShadow="True"
+                           BorderColor="Transparent"
+                           BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
+
+                        <VerticalStackLayout Spacing="8" Padding="0,0,0,12">
+
+                            <Frame CornerRadius="15" Margin="0" Padding="0" IsClippedToBounds="True" HeightRequest="120" BorderColor="Transparent">
+                                <Image Source="{Binding Imagen}" 
+                                       Aspect="AspectFill" />
+                            </Frame>
+
+                            <VerticalStackLayout Padding="10" Spacing="2">
+                                <Label Text="{Binding NombreComun}" 
+                                       HorizontalOptions="Center" 
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="{DynamicResource GlobalTextColor}"
+                                       FontFamily="{DynamicResource GlobalFontFamily}" />
+
+                                <Label Text="{Binding NombreCientifico}" 
+                                       HorizontalOptions="Center" 
+                                       FontSize="12"
+                                       FontAttributes="Italic"
+                                       TextColor="Gray" 
+                                       FontFamily="{DynamicResource GlobalFontFamily}" />
+                            </VerticalStackLayout>
+
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+    </Grid>
 
-    </VerticalStackLayout>
-    
 </ContentPage>

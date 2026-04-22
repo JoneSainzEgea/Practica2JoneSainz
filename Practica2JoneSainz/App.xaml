@@ -23,6 +23,11 @@
             <Style TargetType="Button">
                 <Setter Property="FontFamily" Value="{DynamicResource GlobalFontFamily}" />
                 <Setter Property="FontSize" Value="{DynamicResource GlobalFontSize}" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#E1E1E1, Dark=#333333}" />
+                <Setter Property="TextColor" Value="{DynamicResource GlobalTextColor}" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="0,5" />
             </Style>
 
             <Style x:Key="CardStyle" TargetType="Frame">

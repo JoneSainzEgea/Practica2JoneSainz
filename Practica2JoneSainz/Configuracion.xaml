@@ -2,32 +2,41 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Practica2JoneSainz.Configuracion"
-             Title="Configuración">
-    <VerticalStackLayout Padding="30" Spacing="20">
+             Title="Configuración"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="20">
 
-        <Label Text="Panel de Personalización" 
-               Style="{DynamicResource DynamicLabelStyle}" 
-               HorizontalOptions="Center" />
+            <Label Text="Panel de Personalización" 
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource GlobalTextColor}"
+                   FontFamily="{DynamicResource GlobalFontFamily}" />
 
-        <Button
-            Text="Alternar Modo Claro/Oscuro"
-            Clicked="OnThemeClicked" />
+            <Label Text="Apariencia" FontAttributes="Bold" TextColor="Gray" Margin="5,0"/>
+            <Frame Style="{StaticResource CardStyle}" Padding="15" BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
+                <VerticalStackLayout Spacing="10">
+                    <Button Text="🌙 Alternar Modo Claro/Oscuro" Clicked="OnThemeClicked" />
+                    <Button Text="🎨 Cambiar Color de Texto" Clicked="OnColorClicked" />
+                </VerticalStackLayout>
+            </Frame>
 
-        <Button
-            Text="Cambiar Tamaño de Texto"
-            Clicked="OnFontSizeClicked" />
+            <Label Text="Texto y Tipografía" FontAttributes="Bold" TextColor="Gray" Margin="5,0"/>
+            <Frame Style="{StaticResource CardStyle}" Padding="15" BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
+                <VerticalStackLayout Spacing="10">
+                    <Button Text="Tamaño de Fuente" Clicked="OnFontSizeClicked" />
+                    <Button Text="Cambiar Tipografía" Clicked="OnFontFamilyClicked" />
+                    <Button Text="Alternar Negrita" Clicked="OnBoldClicked" />
+                </VerticalStackLayout>
+            </Frame>
 
-        <Button
-            Text="Cambiar Tipografía"
-            Clicked="OnFontFamilyClicked" />
+            <Label Text="Los cambios se aplican a toda la aplicación automáticamente." 
+                   FontSize="12" 
+                   FontAttributes="Italic"
+                   HorizontalTextAlignment="Center" 
+                   TextColor="Gray" />
 
-        <Button
-            Text="Alternar Negrita"
-            Clicked="OnBoldClicked" />
-
-        <Button
-            Text="Cambiar Color de Texto"
-            Clicked="OnColorClicked" />
-
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -7,21 +7,44 @@
     Shell.FlyoutBehavior="Disabled"
     Title="Practica2JoneSainz">
 
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}" />
+            </Style>
+
+            <Style TargetType="Element">
+                <Setter Property="Shell.FlyoutBackgroundColor" 
+                        Value="{AppThemeBinding Light=#F5F5F5, Dark=#1E1E1E}" />
+
+                <Setter Property="Shell.BackgroundColor" 
+                        Value="{StaticResource Primary}" />
+
+                <Setter Property="Shell.TitleColor" 
+                        Value="White" />
+
+                <Setter Property="Shell.ForegroundColor" 
+                        Value="White" />
+
+                <Setter Property="Shell.UnselectedColor" 
+                        Value="{AppThemeBinding Light=#444444, Dark=#CCCCCC}" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+    
     <ShellContent
-        Title="Práctica 2"
+        Title="Inicio"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
     <FlyoutItem
         Title="Galería">
             <ShellContent
-            Title="Galería"
             ContentTemplate="{DataTemplate local:Galeria}"
             Route="Galeria" />
     </FlyoutItem>
     <FlyoutItem
         Title="Configuración">
             <ShellContent
-            Title="Configuración"
             ContentTemplate="{DataTemplate local:Configuracion}"
             Route="Configuracion" />
     </FlyoutItem>
