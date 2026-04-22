@@ -40,8 +40,6 @@ namespace Practica2JoneSainz
         }
         void OnEntryPassTextChanged(object sender, TextChangedEventArgs e)
         {
-            //string oldText = e.OldTextValue;
-            //string newText = e.NewTextValue;
             pass = entryPass.Text;
         }
 
@@ -71,7 +69,7 @@ namespace Practica2JoneSainz
                 }
             }
             else
-                DisplayAlert("Login error", "Incorrect user or password", "Try again");
+                DisplayAlert("Acceso denegado", "Usuario o contraseña incorrectos", "Volver a intentar");
         }
     }
 

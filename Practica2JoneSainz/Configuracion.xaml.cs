@@ -9,12 +9,31 @@ public partial class Configuracion : ContentPage
 
     private void OnThemeClicked(object sender, EventArgs e)
     {
-        Application.Current.UserAppTheme =
-                (Application.Current.UserAppTheme == AppTheme.Dark)
-                ? AppTheme.Light
-                : AppTheme.Dark;
+        AppTheme currentTheme = Application.Current.UserAppTheme;
 
-        OnColorClicked(null, null);
+        if (currentTheme == AppTheme.Unspecified)
+        {
+            currentTheme = Application.Current.RequestedTheme;
+        }
+
+        Application.Current.UserAppTheme = (currentTheme == AppTheme.Dark)
+            ? AppTheme.Light
+            : AppTheme.Dark;
+
+        UpdateTextColorToTheme();
+    }
+
+    private void UpdateTextColorToTheme()
+    {
+        var resources = Application.Current.Resources;
+        Color currentColor = (Color)resources["GlobalTextColor"];
+
+        if (currentColor != Colors.DarkViolet)
+        {
+            resources["GlobalTextColor"] = (Application.Current.UserAppTheme == AppTheme.Dark)
+                ? Colors.White
+                : Colors.Black;
+        }
     }
 
     private void OnFontSizeClicked(object sender, EventArgs e)
@@ -35,7 +54,6 @@ public partial class Configuracion : ContentPage
         var resources = Application.Current.Resources;
         string currentFont = resources["GlobalFontFamily"].ToString();
 
-        // Lógica para cambiar de familia manteniendo el estado de negrita
         if (currentFont == "OpenSansRegular")
             resources["GlobalFontFamily"] = "CourierNew";
 
