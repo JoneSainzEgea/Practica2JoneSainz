@@ -1,6 +1,10 @@
 ﻿
 namespace Practica2JoneSainz.Models
 {
+    /// <summary>
+    /// Representa la estructura de datos para un animal en la aplicación.
+    /// Contiene información taxonómica, visual y descriptiva.
+    /// </summary>
     public class AnimalData
     {
         public string NombreComun { get; set; }
@@ -13,8 +17,16 @@ namespace Practica2JoneSainz.Models
         public string Descripcion { get; set; }
     }
 
+    /// <summary>
+    /// Repositorio estático que actúa como fuente de datos centralizada de la aplicación.
+    /// Simula una base de datos local con una lista predefinida de animales.
+    /// </summary>
     public static class AnimalRepository
     {
+        /// <summary>
+        /// Obtiene la lista completa de animales registrados en el sistema.
+        /// </summary>
+        /// <value>Colección de objetos</value>
         public static List<AnimalData> AllAnimals { get; } = new List<AnimalData>
         {
             new AnimalData
@@ -105,6 +117,6 @@ namespace Practica2JoneSainz.Models
                 Familia = "Apidae",
                 Descripcion = "Insecto polinizador esencial para los ecosistemas. Vive en colonias organizadas con una reina, zánganos y obreras. Se distingue por su cuerpo cubierto de vellosidades que recogen polen, su capacidad para producir miel y cera, y su complejo sistema de comunicación mediante danzas."
             }
-            };
+        };
     }
 }

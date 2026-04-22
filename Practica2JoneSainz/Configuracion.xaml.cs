@@ -1,5 +1,9 @@
 namespace Practica2JoneSainz;
 
+/// <summary>
+/// Clase que gestiona la lógica de la página de configuración.
+/// Permite al usuario personalizar la apariencia visual de la aplicación.
+/// </summary>
 public partial class Configuracion : ContentPage
 {
 	public Configuracion()
@@ -7,6 +11,9 @@ public partial class Configuracion : ContentPage
 		InitializeComponent();
 	}
 
+    /// <summary>
+    /// Alterna el tema de la aplicación entre modo Claro y Oscuro.
+    /// </summary>
     private void OnThemeClicked(object sender, EventArgs e)
     {
         AppTheme currentTheme = Application.Current.UserAppTheme;
@@ -23,6 +30,10 @@ public partial class Configuracion : ContentPage
         UpdateTextColorToTheme();
     }
 
+    /// <summary>
+    /// Actualiza el color de texto global para garantizar legibilidad al cambiar de tema.
+    /// Solo actúa si el usuario no ha seleccionado un color de personalización.
+    /// </summary>
     private void UpdateTextColorToTheme()
     {
         var resources = Application.Current.Resources;
@@ -36,6 +47,10 @@ public partial class Configuracion : ContentPage
         }
     }
 
+    /// <summary>
+    /// Cambia cíclicamente el tamaño de la fuente global entre tres estados: 
+    /// Pequeño (12), Normal (16) y Grande (24).
+    /// </summary>
     private void OnFontSizeClicked(object sender, EventArgs e)
     {
         var resources = Application.Current.Resources;
@@ -49,6 +64,10 @@ public partial class Configuracion : ContentPage
             resources["GlobalFontSize"] = 16.0; // Normal
     }
 
+    /// <summary>
+    /// Alterna la fuente global entre OpenSans y Courier New.
+    /// Respeta si están en negrita.
+    /// </summary>
     private void OnFontFamilyClicked(object sender, EventArgs e)
     {
         var resources = Application.Current.Resources;
@@ -67,6 +86,10 @@ public partial class Configuracion : ContentPage
             resources["GlobalFontFamily"] = "OpenSansSemibold";
     }
 
+    /// <summary>
+    /// Cambia el estado de negrita de la fuente actual alternando entre 
+    /// las variantes normal y negrita de la fuente seleccionada.
+    /// </summary>
     private void OnBoldClicked(object sender, EventArgs e)
     {
         var resources = Application.Current.Resources;
@@ -96,6 +119,10 @@ public partial class Configuracion : ContentPage
         }
     }
 
+    /// <summary>
+    /// Alterna el color del texto global entre un color personalizado (DarkViolet)
+    /// y los colores base (Blanco o Negro) dependiendo del tema activo.
+    /// </summary>
     private void OnColorClicked(object sender, EventArgs e)
     {
         var resources = Application.Current.Resources;
