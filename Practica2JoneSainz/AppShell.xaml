@@ -8,7 +8,7 @@
     Title="Practica2JoneSainz">
 
     <ShellContent
-        Title="Home"
+        Title="Práctica 2"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
     <FlyoutItem

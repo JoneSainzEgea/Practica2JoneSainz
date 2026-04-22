@@ -1,62 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Practica2JoneSainz.MainPage">
+             x:Class="Practica2JoneSainz.MainPage"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
+        <VerticalStackLayout Padding="30" Spacing="0">
 
-            <Label
-                Text="Práctica 2"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+            <VerticalStackLayout Spacing="10" Margin="0,0,0,20">
+                <Label Text="La Wiki de los Animales"
+                       Style="{DynamicResource Headline}"
+                       FontSize="28"
+                       HorizontalOptions="Center"
+                       FontFamily="{DynamicResource GlobalFontFamily}"
+                       TextColor="{DynamicResource GlobalTextColor}" />
 
-            <Button
-                x:Name="FingerprintBtn"
-                Text="Usar huella" 
-                SemanticProperties.Hint="Validates user with fingerprint"
-                Clicked="OnFingerprintClicked"
-                HorizontalOptions="Fill" />
-            <Label
-                Text="Nombre de usuario"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
-            
-            <Entry
-                x:Name="entryUser"
-                Placeholder="Usuario"
-                ClearButtonVisibility="WhileEditing"
-                TextChanged="OnEntryUserTextChanged"
-                Completed="OnEntryUserCompleted" />
-            
-            <Label
-                Text="Contraseña"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
-            
-            <Entry
-                x:Name="entryPass"
-                Placeholder="Contraseña"
-                ClearButtonVisibility="WhileEditing"
-                IsPassword="true"
-                TextChanged="OnEntryPassTextChanged"
-                Completed="OnEntryPassCompleted" />
+                <Image Source="foto_animales.png"
+                       HeightRequest="160"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center" />
 
-            <Button
-                x:Name="LoginBtn"
-                Text="Login" 
-                SemanticProperties.Hint="Validates user and password"
-                Clicked="OnLoginClicked"
-                HorizontalOptions="Fill" />
+                <Label Text="Inicio de Sesión"
+                       FontSize="14"
+                       FontAttributes="Italic"
+                       HorizontalOptions="Center"
+                       TextColor="Gray"
+                       FontFamily="{DynamicResource GlobalFontFamily}" />
+            </VerticalStackLayout>
+
+            <Frame Style="{StaticResource CardStyle}" 
+                   BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
+
+                <VerticalStackLayout>
+                    <Label Text="Nombre de usuario"
+                           FontAttributes="Bold"
+                           Margin="0,0,0,5"
+                           TextColor="{DynamicResource GlobalTextColor}"
+                           FontFamily="{DynamicResource GlobalFontFamily}" />
+
+                    <Entry x:Name="entryUser"
+                           Placeholder="Introduce tu usuario"
+                           ClearButtonVisibility="WhileEditing"
+                           TextChanged="OnEntryUserTextChanged"
+                           Completed="OnEntryUserCompleted" />
+
+                    <Label Text="Contraseña"
+                           FontAttributes="Bold"
+                           Margin="0,0,0,5"
+                           TextColor="{DynamicResource GlobalTextColor}"
+                           FontFamily="{DynamicResource GlobalFontFamily}" />
+
+                    <Entry x:Name="entryPass"
+                           Placeholder="Introduce tu contraseña"
+                           IsPassword="True"
+                           ClearButtonVisibility="WhileEditing"
+                           TextChanged="OnEntryPassTextChanged"
+                           Completed="OnEntryPassCompleted" />
+
+                    <Button x:Name="LoginBtn"
+                            Text="INICIAR SESIÓN"
+                            FontAttributes="Bold"
+                            HeightRequest="50"
+                            CornerRadius="25"
+                            Margin="0,10,0,10"
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White"
+                            Clicked="OnLoginClicked" />
+
+                    <Button x:Name="FingerprintBtn"
+                            Text="Usar huella digital"
+                            FontAttributes="None"
+                            BackgroundColor="Transparent"
+                            TextColor="{StaticResource Primary}"
+                            BorderColor="{StaticResource Primary}"
+                            BorderWidth="1"
+                            HeightRequest="45"
+                            CornerRadius="25"
+                            Clicked="OnFingerprintClicked" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="¿Olvidaste tus datos? Contacta con soporte"
+                   FontSize="12"
+                   HorizontalOptions="Center"
+                   Margin="0,20"
+                   TextColor="Gray"
+                   FontFamily="{DynamicResource GlobalFontFamily}" />
+            <Label Text="Usuario: user1 ||| Contraseña: pass1"
+                   FontSize="10"
+                   FontAttributes="Italic"
+                   HorizontalOptions="Center"
+                   Margin="0,20"
+                   TextColor="Gray"
+                   FontFamily="{DynamicResource GlobalFontFamily}" />
+
         </VerticalStackLayout>
     </ScrollView>
 
